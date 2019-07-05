@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpsilonEngine", "EpsilonEngine\EpsilonEngine.csproj", "{B694778B-1803-491F-B972-4CE2F0CC14CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{29332B5D-9C3A-4D8E-A214-C82D31579F0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B694778B-1803-491F-B972-4CE2F0CC14CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B694778B-1803-491F-B972-4CE2F0CC14CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B694778B-1803-491F-B972-4CE2F0CC14CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29332B5D-9C3A-4D8E-A214-C82D31579F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29332B5D-9C3A-4D8E-A214-C82D31579F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29332B5D-9C3A-4D8E-A214-C82D31579F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29332B5D-9C3A-4D8E-A214-C82D31579F0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
