@@ -21,6 +21,7 @@ namespace EpsilonEngine {
 
         protected override void OnLoad(EventArgs e) {
             GL.ClearColor(0, 0, 0, 1);
+            GL.Enable(EnableCap.DepthTest);
             Game.Load();
         }
 

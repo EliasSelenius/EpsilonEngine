@@ -22,6 +22,7 @@ namespace EpsilonEngine.Graphics {
         public void ApplyToProgram(ShaderProgram p) {
             p.UniformMat4("view", OpenTK.Matrix4.LookAt(Transform.Position, Transform.Position + Transform.Forward, Transform.Up));
             p.UniformMat4("projection", this.Projection);
+            p.SetVec3("viewPos", Transform.NuPos);
 
         }
 

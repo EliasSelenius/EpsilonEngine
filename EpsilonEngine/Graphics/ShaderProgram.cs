@@ -55,9 +55,17 @@ namespace EpsilonEngine.Graphics {
 
         public void Use() => GL.UseProgram(Handle);
 
+        public void SetInt(int loc, int value) => GL.ProgramUniform1(Handle, loc, value);
+        public void SetInt(string loc, int value) => GL.ProgramUniform1(Handle, GL.GetUniformLocation(Handle, loc), value);
 
-        public void Uniform1(int loc, double value) => GL.ProgramUniform1(Handle, loc, value);
-        public void Uniform1(string name, double value) => GL.ProgramUniform1(Handle, GL.GetUniformLocation(Handle, name), value);
+        public void SetFloat(int loc, float value) => GL.ProgramUniform1(Handle, loc, value);
+        public void SetFloat(string loc, float value) => GL.ProgramUniform1(Handle, GL.GetUniformLocation(Handle, loc), value);
+
+        public void SetDouble(int loc, double value) => GL.ProgramUniform1(Handle, loc, value);
+        public void SetDouble(string loc, double value) => GL.ProgramUniform1(Handle, GL.GetUniformLocation(Handle, loc), value);
+
+        public void SetVec3(int loc, Nums.Vectors.Vec3 value) => GL.ProgramUniform3(Handle, loc, value.x, value.y, value.z);
+        public void SetVec3(string loc, Nums.Vectors.Vec3 value) => GL.ProgramUniform3(Handle, GL.GetUniformLocation(Handle, loc), value.x, value.y, value.z);
 
         public void UniformMat4(int loc, Nums.Mat4 mat) => GL.ProgramUniformMatrix4(Handle, loc, 1, false, mat.AsArray());
         public void UniformMat4(string name, Nums.Mat4 mat) => GL.ProgramUniformMatrix4(Handle, GL.GetUniformLocation(Handle, name), 1, false, mat.AsArray());

@@ -82,6 +82,7 @@
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Graphics\ShaderFiles\BasicLightShader.glsl" />
     <None Include="Graphics\ShaderFiles\Standard.glsl" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />

@@ -25,7 +25,10 @@ namespace EpsilonEngine {
         }
 
         public static void Load() {
-            Renderer.ShaderProgram = new Graphics.ShaderProgram(Graphics.Shaders.Standard);
+            Renderer.ShaderProgram = new Graphics.ShaderProgram(Graphics.Shaders.BasicLightShader);
+            Renderer.ShaderProgram.SetVec3("objectColor", Vec3.One);
+            Renderer.ShaderProgram.SetVec3("lightColor", Vec3.One);
+            Renderer.ShaderProgram.SetVec3("lightPos", Vec3.Zero);
             ActiveScene.Start();
         }
         

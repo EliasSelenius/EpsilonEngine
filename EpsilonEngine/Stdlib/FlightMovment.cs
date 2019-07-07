@@ -16,7 +16,11 @@ namespace EpsilonEngine.Stdlib {
 
             var vec = Transform.Forward * Input.Keyboard.Axis(OpenTK.Input.Key.S, OpenTK.Input.Key.W) * .5f;
             vec += Transform.Left * Input.Keyboard.Axis(OpenTK.Input.Key.D, OpenTK.Input.Key.A) * .5f;
-            Transform.Translate(vec);
+            float speed = 1;
+            if(Input.Keyboard.IsKeyDown(OpenTK.Input.Key.ShiftLeft)) {
+                speed *= 4;
+            }
+            Transform.Translate(vec * speed);
 
             Transform.Rotate(Transform.Up, Input.Mouse.DeltaPos.X / 100);
             Transform.Rotate(Transform.Left, -Input.Mouse.DeltaPos.Y / 100);

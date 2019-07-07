@@ -20,7 +20,8 @@ namespace EpsilonEngine.Graphics {
             Count = b.Length;
             vbo = b;
             vao.Bind(vbo, OpenTK.Graphics.OpenGL4.BufferTarget.ArrayBuffer);
-            vao.AttributePointer(0, 3, OpenTK.Graphics.OpenGL4.VertexAttribPointerType.Float, false, sizeof(float) * 3, 0);
+            vao.AttributePointer(0, 3, OpenTK.Graphics.OpenGL4.VertexAttribPointerType.Float, false, sizeof(float) * 6, 0);
+            vao.AttributePointer(1, 3, OpenTK.Graphics.OpenGL4.VertexAttribPointerType.Float, false, sizeof(float) * 6, sizeof(float) * 3);
         }
 
         protected override void Draw() {
