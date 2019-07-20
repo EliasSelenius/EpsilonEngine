@@ -8,15 +8,17 @@ namespace EpsilonEngine.Graphics {
 
     public static class IRenderableExtensions {
 
-        public static void Enable(this IRenderable renderable, bool enable) {
+        public static void EnableDraw(this IRenderable renderable, bool enable) {
             if (enable) {
-                if (!Game.Renderer.ActiveInstances.Contains(renderable)) {
+                if (!renderable.IsDrawingEnabled()) {
                     Game.Renderer.ActiveInstances.Add(renderable);
                 }
             } else {
                 Game.Renderer.ActiveInstances.Remove(renderable);
             }
         }
+
+        public static bool IsDrawingEnabled(this IRenderable r) => Game.Renderer.ActiveInstances.Contains(r);
     }
 
     public interface IRenderable {

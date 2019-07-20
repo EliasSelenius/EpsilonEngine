@@ -29,7 +29,7 @@ namespace EpsilonEngine.Graphics.Data {
         public static implicit operator Buffer<T>(T[] ts) => new Buffer<T>(BufferTarget.ArrayBuffer, ts);
 
 
-        public override void Dispose(bool manual) {
+        protected override void Dispose(bool manual) {
             if (manual) { GL.DeleteBuffer(Handle); }
         }
     }

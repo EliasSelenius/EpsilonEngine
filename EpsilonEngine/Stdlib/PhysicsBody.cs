@@ -13,7 +13,7 @@ namespace EpsilonEngine.Stdlib {
         public Vec3 Velocity;
 
         public override void Update() {
-            Transform.Translate(Velocity * (float)Time.DeltaTime);
+            Transform.Translate(Velocity * (float)Time.Delta);
         }
 
         public void AddForce(Vec3 force) {

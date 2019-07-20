@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace EpsilonEngine.Graphics {
     public abstract class RenderObject : Component, IRenderable {
 
+
+
         public override void Start() {
-            this.Enable(true);
+            this.EnableDraw(true);
         }
 
         public void Render() {
@@ -20,7 +22,7 @@ namespace EpsilonEngine.Graphics {
 
         public bool Enabled {
             get => Game.Renderer.ActiveInstances.Contains(this);
-            set => this.Enable(value);
+            set => this.EnableDraw(value);
         }
 
     }

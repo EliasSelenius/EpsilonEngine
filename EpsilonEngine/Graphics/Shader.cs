@@ -22,7 +22,7 @@ namespace EpsilonEngine.Graphics {
 
         }
 
-        public override void Dispose(bool manual) {
+        protected override void Dispose(bool manual) {
             if(HasResources) {
                 GL.DeleteShader(Handle);
             }

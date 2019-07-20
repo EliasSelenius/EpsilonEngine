@@ -16,6 +16,7 @@ namespace EpsilonEngine {
 
         static Game() {
             Window = new Window(1600, 900, "Untitled");
+            Window.WindowState = OpenTK.WindowState.Maximized;
             Renderer = new Graphics.Renderer();
             ActiveScene = new Scene();
         }
@@ -25,10 +26,7 @@ namespace EpsilonEngine {
         }
 
         public static void Load() {
-            Renderer.ShaderProgram = new Graphics.ShaderProgram(Graphics.Shaders.BasicLightShader);
-            Renderer.ShaderProgram.SetVec3("objectColor", Vec3.One);
-            Renderer.ShaderProgram.SetVec3("lightColor", Vec3.One);
-            Renderer.ShaderProgram.SetVec3("lightPos", Vec3.Zero);
+            Renderer.ShaderProgram = new Graphics.ShaderProgram(Graphics.Shaders.LightShader);
             ActiveScene.Start();
         }
         

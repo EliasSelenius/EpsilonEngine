@@ -29,7 +29,7 @@ namespace EpsilonEngine.Graphics.Data {
             GC.SuppressFinalize(this);
         }
 
-        public abstract void Dispose(bool manual);
+        protected abstract void Dispose(bool manual);
 
         public override string ToString() => GetType().Name + $" ({Handle})";
 

@@ -73,10 +73,17 @@ namespace EpsilonEngine.Graphics {
         ///	uniform mat4 view;
         ///	uniform mat4 projection;
         ///
-        ///	layout (location = 0) in vec3 vPos;
+        ///	layout (location = 0) in vec3 aPos;
+        ///	layout (location = 1) in vec3 aNormal;
+        ///
+        ///	out vec3 FragPos;
+        ///	out vec3 Normal;
         ///
         ///	void main() {
-        ///		gl_Position = projection * view * model * vec4(vPos, 1.0f);
+        ///		gl_Position = projection * view * model * vec4(aPos, 1.0f);
+        ///		FragPos = vec3(model * vec4(aPos, 1.0));
+        ///		Normal = mat3(transpose(inverse(model))) * aNormal;
+        ///		//Normal = aNormal;
         ///	}
         ///#endif
         ///
@@ -84,18 +91,51 @@ namespace EpsilonEngine.Graphics {
         ///
         ///#ifdef FragmentShader
         ///
-        ///	uniform vec3 objectColor;
-        ///	uniform vec3 lightColor;
         ///
-        ///	out vec4 FragColor;
-        ///	void main() {
-        ///		FragColor = vec4(objectColor * lightColor, 1.0f);
-        ///	}
-        ///#endif.
+        ///	u [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BasicLightShader {
             get {
                 return ResourceManager.GetString("BasicLightShader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///#version 440 core
+        ///#define ShaderType
+        ///
+        ///
+        ///
+        ///#ifdef VertexShader
+        ///
+        ///	uniform mat4 model;
+        ///	uniform mat4 view;
+        ///	uniform mat4 projection;
+        ///
+        ///	layout (location = 0) in vec3 aPos;
+        ///	layout (location = 1) in vec3 aNormal;
+        ///
+        ///	out vec3 FragPos;
+        ///	out vec3 Normal;
+        ///
+        ///	void main() {
+        ///		gl_Position = projection * view * model * vec4(aPos, 1.0f);
+        ///		FragPos = vec3(model * vec4(aPos, 1.0));
+        ///		Normal = mat3(transpose(inverse(model))) * aNormal;
+        ///		//Normal = aNormal;
+        ///	}
+        ///#endif
+        ///
+        ///
+        ///
+        ///#ifdef FragmentShader
+        ///
+        ///	str [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LightShader {
+            get {
+                return ResourceManager.GetString("LightShader", resourceCulture);
             }
         }
         

@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Graphics\Camera.cs" />
+    <Compile Include="Graphics\Color.cs" />
     <Compile Include="Graphics\Data\Buffer.cs" />
     <Compile Include="Graphics\Data\GLObj.cs" />
     <Compile Include="Graphics\Data\VertexArray.cs" />
@@ -71,17 +73,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Shaders.resx</DependentUpon>
     </Compile>
+    <Compile Include="Graphics\Data\Texture2D.cs" />
     <Compile Include="Input\Keyboard.cs" />
     <Compile Include="Input\Mouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="Stdlib\FlightMovment.cs" />
     <Compile Include="Stdlib\PhysicsBody.cs" />
+    <Compile Include="Stdlib\Plane.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Transform.cs" />
     <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Graphics\ShaderFiles\LightShader.glsl" />
     <None Include="Graphics\ShaderFiles\BasicLightShader.glsl" />
     <None Include="Graphics\ShaderFiles\Standard.glsl" />
     <None Include="OpenTK.dll.config" />

@@ -80,7 +80,7 @@ namespace EpsilonEngine.Graphics {
 
         public int GetUniformLocation(string name) => GL.GetUniformLocation(Handle, name);
 
-        public override void Dispose(bool manual) {
+        protected override void Dispose(bool manual) {
             if(HasResources) {
                 if(manual) {
                     GL.DeleteProgram(Handle);

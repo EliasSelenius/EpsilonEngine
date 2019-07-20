@@ -42,7 +42,7 @@ namespace EpsilonEngine.Graphics.Data {
             Unbind();
         }
 
-        public override void Dispose(bool manual) {
+        protected override void Dispose(bool manual) {
             if (HasResources) {
                 if(manual) {
                     GL.DeleteVertexArray(Handle);

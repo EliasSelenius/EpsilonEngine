@@ -16,7 +16,7 @@ namespace Demo {
     class Program {
         static void Main(string[] args) {
 
-            Game.ActiveScene.Init(new Camera(), new FlightMovment());
+            Game.ActiveScene.Init(new Camera(), new FlightMovment(), new GameController());
 
             int size = 100;
             var v = Vec3.Zero;
@@ -36,7 +36,7 @@ namespace Demo {
 
             }
 
-            var platformSize = 50;
+            var platformSize = 10;
             var platform = Game.ActiveScene.Init(new Mesh(Primitive.CubePosAndNormals));
             platform.Transform.Scale.X = platformSize;
             platform.Transform.Scale.Z = platformSize;
@@ -48,7 +48,56 @@ namespace Demo {
                 col.Transform.Scale.Y = r.Next(10, 20);
             }
 
+
+            var chunk = Game.ActiveScene.Init(new TerrainChunk());
+            chunk.Transform.Position.Y = -8;
+
+            var plane = Game.ActiveScene.Init(new Plane());
+            plane.Transform.Position.Y = 10;
+            plane.Transform.Scale.Xz *= 10;
+
+            for (int i = 0; i < 100; i++) {
+                Console.WriteLine( i + "  :  " + Demo.Noise.RandomSeed(i));
+            }
+
+            ConsoleGL.Graph(x => (float)Math.Sin(x) + 1, 150, 20);
+            ConsoleGL.Graph(x => Demo.Noise.RandomSeed((int)x) * 4f, 150, 20);
+
+            
+
             Game.Run();
+        }
+        public static float Noise(float x) => NormSin(x) * Random(x); 
+        static float Random(float x) {
+            return (float)new Random((int)x).NextDouble();
+        }
+        static float NormSin(float x) {
+            return (float)Math.Sin(x * Math.PI);
+        }
+
+        class GameController : Component {
+
+
+            public override void Start() {
+
+                Game.Renderer.ShaderProgram.SetVec3("material.ambient", new Vec3(1, .5f, .31f));
+                Game.Renderer.ShaderProgram.SetVec3("material.diffuse", new Vec3(1, .5f, .31f));
+                Game.Renderer.ShaderProgram.SetVec3("material.specular", new Vec3(.5f, .5f, .5f));
+                Game.Renderer.ShaderProgram.SetFloat("material.shininess", 32f);
+
+                Game.Renderer.ShaderProgram.SetVec3("light.ambient", new Vec3(0.2f));
+                Game.Renderer.ShaderProgram.SetVec3("light.diffuse", new Vec3(.5f));
+                Game.Renderer.ShaderProgram.SetVec3("light.specular", new Vec3(1));
+            }
+
+            public override void Update() {
+                //Game.Renderer.ShaderProgram.SetVec3("lightColor", new Vec3((float)(Math.Sin(Time.SinceStart) + 1 ) / 2f, (float)(Math.Sin(Time.SinceStart / 2f) + 1) / 2f, (float)(Math.Sin(Time.SinceStart / 3f) + 1) / 2f));
+                Game.Renderer.ShaderProgram.SetVec3("light.position", new Vec3((float)Math.Cos(Time.SinceStart), 0, (float)Math.Sin(Time.SinceStart)) * 20);
+
+                var v = new Vec3((float)Math.Sin(Time.SinceStart * 2), (float)Math.Sin(Time.SinceStart * 0.7f), (float)Math.Sin(Time.SinceStart * 1.3f));
+                //Game.Renderer.ShaderProgram.SetVec3("light.ambient", v * .2f);
+                //Game.Renderer.ShaderProgram.SetVec3("light.diffuse", v * .5f);
+            }
         }
     }
 }

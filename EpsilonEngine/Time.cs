@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace EpsilonEngine {
     public static class Time {
 
-        public static double DeltaTime { get; private set; }
-
+        public static double Delta { get; private set; }
+        public static double SinceStart { get; private set; } = 0;
 
         public static void NextTick(double newdTime) {
-            DeltaTime = newdTime;
+            Delta = newdTime;
+            SinceStart += newdTime;
         }
 
     }
