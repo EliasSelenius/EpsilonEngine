@@ -26,7 +26,6 @@ namespace EpsilonEngine {
         }
 
         public static void Load() {
-            Renderer.ShaderProgram = new Graphics.ShaderProgram(Graphics.Shaders.LightShader);
             ActiveScene.Start();
         }
         

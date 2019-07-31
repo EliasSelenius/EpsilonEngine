@@ -13,6 +13,10 @@ namespace EpsilonEngine.Graphics {
         public ShaderProgram ShaderProgram;
         public Camera MainCamera;
 
+        public Renderer() {
+            ShaderProgram = new ShaderProgram(Shaders.LightShader);
+        }
+
         public void Render() {
 
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);

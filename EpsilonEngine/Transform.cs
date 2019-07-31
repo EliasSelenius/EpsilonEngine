@@ -37,5 +37,20 @@ namespace EpsilonEngine {
         public void Rotate(OpenTK.Vector3 vec, float angle) => Rotation *= OpenTK.Quaternion.FromAxisAngle(vec, angle);
         public void Rotate(float x, float y, float z, float angle) => Rotation *= OpenTK.Quaternion.FromAxisAngle(new OpenTK.Vector3(x, y, z), angle);
 
+
+        public void LookAt(OpenTK.Vector3 at) => LookAt(at, OpenTK.Vector3.UnitY);
+        public void LookAt(OpenTK.Vector3 at, OpenTK.Vector3 up) {
+            var zaxis = (at - Position).Normalized();
+            var xaxis = OpenTK.Vector3.Cross(up, zaxis).Normalized();
+            var yaxis = OpenTK.Vector3.Cross(zaxis, xaxis);
+
+            var mat = new OpenTK.Matrix3(xaxis, yaxis, zaxis);
+
+
+
+            Rotation = mat.ExtractRotation();
+
+        }
+
     }
 }

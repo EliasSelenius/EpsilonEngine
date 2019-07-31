@@ -13,7 +13,7 @@ namespace EpsilonEngine.Input {
         public static OpenTK.Vector2 Pos => new OpenTK.Vector2(state.X, state.Y);
         public static OpenTK.Vector2 DeltaPos => Pos - LastPos;
 
-        public static void NextTick() {
+        internal static void NextTick() {
             LastPos = Pos;
             state = OpenTK.Input.Mouse.GetState();
         }

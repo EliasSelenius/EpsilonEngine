@@ -10,7 +10,7 @@ namespace EpsilonEngine.Input {
         private static OpenTK.Input.KeyboardState state;
 
 
-        public static void NextTick() {
+        internal static void NextTick() {
             state = OpenTK.Input.Keyboard.GetState();
         }
 
